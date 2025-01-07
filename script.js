@@ -1,10 +1,10 @@
 const players = [
-    { name: "Matt", picture: "Assets/matt.jpg" },
-    { name: "Jarv", picture: "Assets/jarv.jpg" },
-    { name: "Gaz", picture: "Assets/gaz.jpg" },
-    { name: "Joe", picture: "Assets/joe.jpg" },
-    { name: "Ben", picture: "Assets/ben.jpg" },
-    { name: "Coley", picture: "Assets/coley.jpg" }
+    { name: "Matt", picture: "Assets/matt.png" },
+    { name: "Jarv", picture: "Assets/jarv.png" },
+    { name: "Gaz", picture: "Assets/gaz.png" },
+    { name: "Joe", picture: "Assets/joe.png" },
+    { name: "Ben", picture: "Assets/ben.png" },
+    { name: "Coley", picture: "Assets/coley.png" }
 ];
 
 const teams = ["Eagles", "Chiefs", "49ers", "Bills", "Cowboys", "Bengals"]; // Example teams
