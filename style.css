@@ -3,7 +3,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: url('Assets/superbowl-background.jpg') no-repeat center center fixed;
+    background: url('Assets/superbowl-background.jpeg') no-repeat center center fixed;
     background-size: cover;
     color: #F2AA4C;
 }
@@ -64,6 +64,16 @@ th {
     color: #FFD700;
 }
 
+/* Player Images in the Table */
+.player-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Make the images circular */
+    margin-right: 10px;
+    vertical-align: middle;
+    object-fit: cover; /* Ensure images fit within the circle without distortion */
+}
+
 /* Winner and Loser Section */
 .highlight-container {
     display: flex;
@@ -105,4 +115,33 @@ th {
 
 .loser {
     border-color: #FF6347;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    main {
+        padding: 10px;
+    }
+
+    table, th, td {
+        font-size: 0.8rem;
+    }
+
+    input, button {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .highlight-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .framed-pic {
+        width: 80px;
+        height: 80px;
+    }
 }
