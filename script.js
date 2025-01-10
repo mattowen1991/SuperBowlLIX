@@ -47,7 +47,12 @@ const players = [
 // Update Player Picks Table
 function updatePlayerPicks() {
     const tbody = document.getElementById("playerPicksBody");
-    tbody.innerHTML = "";
+    if (!tbody) {
+        console.error("Player Picks table body not found.");
+        return;
+    }
+
+    tbody.innerHTML = ""; // Clear existing rows
 
     players.forEach(player => {
         const row = document.createElement("tr");
@@ -56,22 +61,36 @@ function updatePlayerPicks() {
                 <img src="${player.picture}" alt="${player.name}" class="player-pic">
                 ${player.name}
             </td>
-            <td>${player.afcTeam}</td>
-            <td>${player.nfcTeam}</td>
+            <td class="centered">${player.afcTeam}</td>
+            <td class="centered">${player.nfcTeam}</td>
         `;
         tbody.appendChild(row);
     });
 }
 
-// Update Winner and Loser Section (Optional)
-function updateWinnerAndLoser(winner, loser) {
-    document.getElementById("winnerPic").src = winner.picture;
-    document.getElementById("winnerName").textContent = winner.name;
+// Update Winner and Loser Section
+function updateWinnerAndLoser(winnerIndex, loserIndex) {
+    const winner = players[winnerIndex];
+    const loser = players[loserIndex];
 
-    document.getElementById("loserPic").src = loser.picture;
-    document.getElementById("loserName").textContent = loser.name;
+    const winnerPic = document.getElementById("winnerPic");
+    const winnerName = document.getElementById("winnerName");
+    const loserPic = document.getElementById("loserPic");
+    const loserName = document.getElementById("loserName");
+
+    if (winnerPic && winnerName && loserPic && loserName) {
+        winnerPic.src = winner.picture;
+        winnerName.textContent = winner.name;
+
+        loserPic.src = loser.picture;
+        loserName.textContent = loser.name;
+    } else {
+        console.error("Winner or Loser elements not found in the DOM.");
+    }
 }
 
 // Initial Render
-updatePlayerPicks();
-updateWinnerAndLoser(players[0], players[6]); // Example: Matt as winner, Mark as loser
+document.addEventListener("DOMContentLoaded", () => {
+    updatePlayerPicks();
+    updateWinnerAndLoser(0, 6); // Example: Matt as winner, Mark as loser
+});
