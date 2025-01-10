@@ -1,18 +1,18 @@
 // Hardcoded player data with their teams
 const players = [
-    { name: "Matt", team: "Kansas City Chiefs" },
-    { name: "Jarv", team: "Philadelphia Eagles" },
-    { name: "Gaz", team: "San Francisco 49ers" },
-    { name: "Joe", team: "Cincinnati Bengals" },
-    { name: "Ben", team: "Buffalo Bills" },
-    { name: "Coley", team: "Dallas Cowboys" },
-    { name: "Mark", team: "Miami Dolphins" }
+    { name: "Matt", team: "TBC" },
+    { name: "Jarv", team: "TBC" },
+    { name: "Gaz", team: "TBC" },
+    { name: "Joe", team: "TBC" },
+    { name: "Ben", team: "TBC" },
+    { name: "Coley", team: "TBC" },
+    { name: "Mark", team: "TBC" }
 ];
 
 // Hardcoded winner and loser
 const superBowlResults = {
-    winner: { name: "Matt", picture: "Assets/matt.png" },
-    loser: { name: "Jarv", picture: "Assets/jarv.png" }
+    winner: { name: "TBC", picture: "Assets/winnertbc.png" },
+    loser: { name: "TBC", picture: "Assets/losertbc.png" }
 };
 
 // Populate the Player Picks Table
