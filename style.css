@@ -59,6 +59,11 @@ th, td {
     color: white;
 }
 
+/* Center text in AFC and NFC columns */
+th, td:nth-child(2), td:nth-child(3) {
+    text-align: center;
+}
+
 th {
     background: rgba(255, 255, 255, 0.2);
     color: #FFD700;
