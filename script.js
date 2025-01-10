@@ -4,43 +4,43 @@ const players = [
         name: "Matt",
         picture: "Assets/matt.png",
         afcTeam: "Kansas City Chiefs",
-        nfcTeam: "Philadelphia Eagles"
+        nfcTeam: "Detroit Lions"
     },
     {
         name: "Gaz",
         picture: "Assets/gaz.png",
         afcTeam: "Buffalo Bills",
-        nfcTeam: "San Francisco 49ers"
+        nfcTeam: "Green Bay Packers"
     },
     {
-        name: "Ste",
-        picture: "Assets/ste.png",
-        afcTeam: "Baltimore Ravens",
-        nfcTeam: "Dallas Cowboys"
+        name: "Colesy",
+        picture: "Assets/coley.png",
+        afcTeam: "Denver Broncos",
+        nfcTeam: "Minnesota Vikings"
     },
     {
         name: "Jarv",
         picture: "Assets/jarv.png",
-        afcTeam: "Cincinnati Bengals",
-        nfcTeam: "Detroit Lions"
+        afcTeam: "Baltimore Ravens",
+        nfcTeam: "Los Angeles Rams"
     },
     {
         name: "Joe",
         picture: "Assets/joe.png",
-        afcTeam: "Miami Dolphins",
-        nfcTeam: "Minnesota Vikings"
+        afcTeam: "Los Angeles Chargers",
+        nfcTeam: "Tampa Bay Buccaneers"
     },
     {
         name: "Ben",
         picture: "Assets/ben.png",
-        afcTeam: "Jacksonville Jaguars",
-        nfcTeam: "New Orleans Saints"
+        afcTeam: "Pittsburgh Steelers",
+        nfcTeam: "Philadelphia Eagles"
     },
     {
         name: "Mark",
         picture: "Assets/mark.png",
-        afcTeam: "Los Angeles Chargers",
-        nfcTeam: "Seattle Seahawks"
+        afcTeam: "Houston Texans",
+        nfcTeam: "Washington Redskins"
     }
 ];
 
