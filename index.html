@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Bowl LIX!</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" sizes="48x48" href="Assets/nfl-favicon2.png">
 </head>
 <body>
     <header>
-        <h1>🏈 Super Bowl LIX! 🏆</h1>
-        <p>🔱 The Table of Champions 🔱</p>
+        <h1>🏈 Super Bowl LIX Sweepstake! 🏆</h1>
+        <p>Sweepstake Table</p>
     </header>
     <main>
         <!-- Player Picks Table -->
@@ -20,7 +19,12 @@
                 <thead>
                     <tr>
                         <th>Player</th>
-                        <th>Team</th>
+                        <th>
+                            <img src="Assets/afc-logo.png" alt="AFC Logo" class="conference-logo"> AFC
+                        </th>
+                        <th>
+                            <img src="Assets/nfc-logo.png" alt="NFC Logo" class="conference-logo"> NFC
+                        </th>
                     </tr>
                 </thead>
                 <tbody id="playerPicksBody">
@@ -31,17 +35,17 @@
 
         <!-- Winner and Loser Section -->
         <section id="winner-loser" class="card">
-            <h2>Super Bowl LIX Results!</h2>
+            <h2>Super Bowl LIX Winner and Loser!</h2>
             <div class="highlight-container">
                 <div class="highlight-item">
-                    <h3>🏆 Winner</h3>
+                    <h3>🏆 Super Bowl Winner!</h3>
                     <div class="framed-pic winner">
                         <img id="winnerPic" src="" alt="Winner">
                     </div>
                     <p id="winnerName"></p>
                 </div>
                 <div class="highlight-item">
-                    <h3>😭 Loser</h3>
+                    <h3>Super Bowl Loser!</h3>
                     <div class="framed-pic loser">
                         <img id="loserPic" src="" alt="Loser">
                     </div>
@@ -53,61 +57,6 @@
     <footer>
         <p>&copy; 2025 Super Bowl Sweepstake. All rights reserved.</p>
     </footer>
-    <script>
-        // Hardcoded player data with profile pictures and their teams
-        const players = [
-            { name: "Matt", team: "TBC", picture: "Assets/matt.png" },
-            { name: "Jarv", team: "TBC", picture: "Assets/jarv.png" },
-            { name: "Gaz", team: "TBC", picture: "Assets/gaz.png" },
-            { name: "Joe", team: "TBC", picture: "Assets/joe.png" },
-            { name: "Ben", team: "TBC", picture: "Assets/ben.png" },
-            { name: "Coley", team: "TBC", picture: "Assets/coley.png" },
-            { name: "Mark", team: "TBC", picture: "Assets/mark.png" }
-        ];
-
-        // Hardcoded winner and loser
-        const superBowlResults = {
-            winner: { name: "TBC", picture: "Assets/winnertbc.png" },
-            loser: { name: "TBC", picture: "Assets/losertbc.png" }
-        };
-
-        // Populate the Player Picks Table with profile pictures
-        function populatePlayerPicks() {
-            const tableBody = document.getElementById('playerPicksBody');
-            tableBody.innerHTML = '';
-
-            players.forEach(player => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>
-                        <img src="${player.picture}" alt="${player.name}" class="player-pic">
-                        ${player.name}
-                    </td>
-                    <td>${player.team}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        }
-
-        // Display winner and loser
-        function displayWinnerAndLoser() {
-            const winnerPic = document.getElementById('winnerPic');
-            const winnerName = document.getElementById('winnerName');
-            const loserPic = document.getElementById('loserPic');
-            const loserName = document.getElementById('loserName');
-
-            winnerPic.src = superBowlResults.winner.picture;
-            winnerPic.alt = superBowlResults.winner.name;
-            winnerName.textContent = superBowlResults.winner.name;
-
-            loserPic.src = superBowlResults.loser.picture;
-            loserPic.alt = superBowlResults.loser.name;
-            loserName.textContent = superBowlResults.loser.name;
-        }
-
-        // Initial render
-        populatePlayerPicks();
-        displayWinnerAndLoser();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
