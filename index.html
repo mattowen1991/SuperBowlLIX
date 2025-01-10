@@ -24,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody id="playerPicksBody">
-                    <!-- Rows will be populated by script -->
+                    <!-- Dynamic rows will be added here -->
                 </tbody>
             </table>
         </section>
@@ -53,6 +53,61 @@
     <footer>
         <p>&copy; 2025 Super Bowl Sweepstake. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        // Hardcoded player data with profile pictures and their teams
+        const players = [
+            { name: "Matt", team: "Kansas City Chiefs", picture: "Assets/matt.png" },
+            { name: "Jarv", team: "Philadelphia Eagles", picture: "Assets/jarv.png" },
+            { name: "Gaz", team: "San Francisco 49ers", picture: "Assets/gaz.png" },
+            { name: "Joe", team: "Cincinnati Bengals", picture: "Assets/joe.png" },
+            { name: "Ben", team: "Buffalo Bills", picture: "Assets/ben.png" },
+            { name: "Coley", team: "Dallas Cowboys", picture: "Assets/coley.png" },
+            { name: "Mark", team: "Miami Dolphins", picture: "Assets/mark.png" }
+        ];
+
+        // Hardcoded winner and loser
+        const superBowlResults = {
+            winner: { name: "Matt", picture: "Assets/matt.png" },
+            loser: { name: "Jarv", picture: "Assets/jarv.png" }
+        };
+
+        // Populate the Player Picks Table with profile pictures
+        function populatePlayerPicks() {
+            const tableBody = document.getElementById('playerPicksBody');
+            tableBody.innerHTML = '';
+
+            players.forEach(player => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <img src="${player.picture}" alt="${player.name}" class="player-pic">
+                        ${player.name}
+                    </td>
+                    <td>${player.team}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Display winner and loser
+        function displayWinnerAndLoser() {
+            const winnerPic = document.getElementById('winnerPic');
+            const winnerName = document.getElementById('winnerName');
+            const loserPic = document.getElementById('loserPic');
+            const loserName = document.getElementById('loserName');
+
+            winnerPic.src = superBowlResults.winner.picture;
+            winnerPic.alt = superBowlResults.winner.name;
+            winnerName.textContent = superBowlResults.winner.name;
+
+            loserPic.src = superBowlResults.loser.picture;
+            loserPic.alt = superBowlResults.loser.name;
+            loserName.textContent = superBowlResults.loser.name;
+        }
+
+        // Initial render
+        populatePlayerPicks();
+        displayWinnerAndLoser();
+    </script>
 </body>
 </html>
