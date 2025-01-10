@@ -1,12 +1,12 @@
-// Hardcoded player data with their teams
+// Hardcoded player data with profile pictures and their teams
 const players = [
-    { name: "Matt", team: "TBC" },
-    { name: "Jarv", team: "TBC" },
-    { name: "Gaz", team: "TBC" },
-    { name: "Joe", team: "TBC" },
-    { name: "Ben", team: "TBC" },
-    { name: "Coley", team: "TBC" },
-    { name: "Mark", team: "TBC" }
+    { name: "Matt", team: "TBC", picture: "Assets/matt.png" },
+    { name: "Jarv", team: "TBC", picture: "Assets/jarv.png" },
+    { name: "Gaz", team: "TBC", picture: "Assets/gaz.png" },
+    { name: "Joe", team: "TBC", picture: "Assets/joe.png" },
+    { name: "Ben", team: "TBC", picture: "Assets/ben.png" },
+    { name: "Coley", team: "TBC", picture: "Assets/coley.png" },
+    { name: "Mark", team: "TBC", picture: "Assets/mark.png" }
 ];
 
 // Hardcoded winner and loser
@@ -15,7 +15,7 @@ const superBowlResults = {
     loser: { name: "TBC", picture: "Assets/losertbc.png" }
 };
 
-// Populate the Player Picks Table
+// Populate the Player Picks Table with profile pictures
 function populatePlayerPicks() {
     const tableBody = document.getElementById('playerPicksBody');
     tableBody.innerHTML = '';
@@ -23,7 +23,10 @@ function populatePlayerPicks() {
     players.forEach(player => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${player.name}</td>
+            <td>
+                <img src="${player.picture}" alt="${player.name}" class="player-pic">
+                ${player.name}
+            </td>
             <td>${player.team}</td>
         `;
         tableBody.appendChild(row);
