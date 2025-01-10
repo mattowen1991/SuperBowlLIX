@@ -1,36 +1,51 @@
+// Hardcoded player data with their teams
 const players = [
-    { name: "Matt", picture: "Assets/matt.png" },
-    { name: "Jarv", picture: "Assets/jarv.png" },
-    { name: "Gaz", picture: "Assets/gaz.png" },
-    { name: "Joe", picture: "Assets/joe.png" },
-    { name: "Ben", picture: "Assets/ben.png" },
-    { name: "Coley", picture: "Assets/coley.png" }
+    { name: "Matt", team: "Kansas City Chiefs" },
+    { name: "Jarv", team: "Philadelphia Eagles" },
+    { name: "Gaz", team: "San Francisco 49ers" },
+    { name: "Joe", team: "Cincinnati Bengals" },
+    { name: "Ben", team: "Buffalo Bills" },
+    { name: "Coley", team: "Dallas Cowboys" },
+    { name: "Mark", team: "Miami Dolphins" }
 ];
 
-const teams = ["Eagles", "Chiefs", "49ers", "Bills", "Cowboys", "Bengals"]; // Example teams
+// Hardcoded winner and loser
+const superBowlResults = {
+    winner: { name: "Matt", picture: "Assets/matt.png" },
+    loser: { name: "Jarv", picture: "Assets/jarv.png" }
+};
 
-// Randomly assign teams
-players.forEach((player, index) => {
-    player.team = teams[index];
-});
+// Populate the Player Picks Table
+function populatePlayerPicks() {
+    const tableBody = document.getElementById('playerPicksBody');
+    tableBody.innerHTML = '';
 
-// Populate player picks table
-const playerPicksBody = document.getElementById("playerPicksBody");
-players.forEach(player => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-        <td><img src="${player.picture}" alt="${player.name}" class="player-pic">${player.name}</td>
-        <td>${player.team}</td>
-    `;
-    playerPicksBody.appendChild(row);
-});
+    players.forEach(player => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${player.name}</td>
+            <td>${player.team}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
 
-// Set winner and loser (Example data)
-const winner = players[0]; // Change as needed
-const loser = players[5]; // Change as needed
+// Display winner and loser
+function displayWinnerAndLoser() {
+    const winnerPic = document.getElementById('winnerPic');
+    const winnerName = document.getElementById('winnerName');
+    const loserPic = document.getElementById('loserPic');
+    const loserName = document.getElementById('loserName');
 
-document.getElementById("winnerPic").src = winner.picture;
-document.getElementById("winnerName").textContent = winner.name;
+    winnerPic.src = superBowlResults.winner.picture;
+    winnerPic.alt = superBowlResults.winner.name;
+    winnerName.textContent = superBowlResults.winner.name;
 
-document.getElementById("loserPic").src = loser.picture;
-document.getElementById("loserName").textContent = loser.name;
+    loserPic.src = superBowlResults.loser.picture;
+    loserPic.alt = superBowlResults.loser.name;
+    loserName.textContent = superBowlResults.loser.name;
+}
+
+// Initial render
+populatePlayerPicks();
+displayWinnerAndLoser();
