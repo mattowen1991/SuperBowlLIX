@@ -6,6 +6,25 @@
     <title>Super Bowl LIX!</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="48x48" href="Assets/nfl-favicon2.png">
+    <style>
+        /* Add this CSS directly in the <head> for simplicity */
+        .eliminated {
+            text-decoration: line-through;
+            color: red;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            animation: fade 0.5s alternate infinite;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0.5;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -33,55 +52,7 @@
                     </tr>
                 </thead>
                 <tbody id="playerPicksBody">
-                    <tr>
-                        <td>
-                            <img src="Assets/matt.png" alt="Matt" class="player-pic"> Matt
-                        </td>
-                        <td>Kansas City Chiefs</td>
-                        <td>Detroit Lions</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/gaz.png" alt="Gaz" class="player-pic"> Gaz
-                        </td>
-                        <td>Buffalo Bills</td>
-                        <td>Green Bay Packers</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/coley.png" alt="Colesy" class="player-pic"> Colesy
-                        </td>
-                        <td>Denver Broncos</td>
-                        <td>Minnesota Vikings</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/jarv.png" alt="Jarv" class="player-pic"> Jarv
-                        </td>
-                        <td>Baltimore Ravens</td>
-                        <td>Los Angeles Rams</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/joe.png" alt="Joe" class="player-pic"> Joe
-                        </td>
-                        <td>Los Angeles Chargers</td>
-                        <td>Tampa Bay Buccaneers</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/ben.png" alt="Ben" class="player-pic"> Ben
-                        </td>
-                        <td>Pittsburgh Steelers</td>
-                        <td>Philadelphia Eagles</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/mark.png" alt="Mark" class="player-pic"> Mark
-                        </td>
-                        <td>Houston Texans</td>
-                        <td>Washington Redskins</td>
-                    </tr>
+                    <!-- Rows will be dynamically populated by JavaScript -->
                 </tbody>
             </table>
         </section>
@@ -93,16 +64,16 @@
                 <div class="highlight-item">
                     <h3>🏆 Winner</h3>
                     <div class="framed-pic winner">
-                        <img src="Assets/winnertbc.png" alt="TBC">
+                        <img id="winnerPic" src="Assets/winnertbc.png" alt="TBC">
                     </div>
-                    <p>TBC</p>
+                    <p id="winnerName">TBC</p>
                 </div>
                 <div class="highlight-item">
                     <h3>😭 Loser</h3>
                     <div class="framed-pic loser">
-                        <img src="Assets/losertbc.png" alt="TBC">
+                        <img id="loserPic" src="Assets/losertbc.png" alt="TBC">
                     </div>
-                    <p>TBC</p>
+                    <p id="loserName">TBC</p>
                 </div>
             </div>
         </section>
@@ -110,6 +81,117 @@
     <footer>
         <p>&copy; 2025 Super Bowl Sweepstake. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        // Hardcoded data for the Super Bowl teams and players
+        const players = [
+            {
+                name: "Matt",
+                picture: "Assets/matt.png",
+                afcTeam: "Kansas City Chiefs",
+                nfcTeam: "Detroit Lions"
+            },
+            {
+                name: "Gaz",
+                picture: "Assets/gaz.png",
+                afcTeam: "Buffalo Bills",
+                nfcTeam: "Green Bay Packers"
+            },
+            {
+                name: "Colesy",
+                picture: "Assets/coley.png",
+                afcTeam: "Denver Broncos",
+                nfcTeam: "Minnesota Vikings"
+            },
+            {
+                name: "Jarv",
+                picture: "Assets/jarv.png",
+                afcTeam: "Baltimore Ravens",
+                nfcTeam: "Los Angeles Rams"
+            },
+            {
+                name: "Joe",
+                picture: "Assets/joe.png",
+                afcTeam: "Los Angeles Chargers",
+                nfcTeam: "Tampa Bay Buccaneers"
+            },
+            {
+                name: "Ben",
+                picture: "Assets/ben.png",
+                afcTeam: "Pittsburgh Steelers",
+                nfcTeam: "Philadelphia Eagles"
+            },
+            {
+                name: "Mark",
+                picture: "Assets/mark.png",
+                afcTeam: "Houston Texans",
+                nfcTeam: "Washington Redskins"
+            }
+        ];
+
+        // List of eliminated teams
+        const eliminatedTeams = [
+            "Minnesota Vikings",
+            "Los Angeles Chargers",
+            "Pittsburgh Steelers",
+            "Denver Broncos",
+            "Green Bay Packers",
+            "Tampa Bay Buccaneers"
+        ];
+
+        // Update Player Picks Table
+        function updatePlayerPicks() {
+            const tbody = document.getElementById("playerPicksBody");
+            if (!tbody) {
+                console.error("Player Picks table body not found.");
+                return;
+            }
+
+            tbody.innerHTML = ""; // Clear existing rows
+
+            players.forEach(player => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>
+                        <img src="${player.picture}" alt="${player.name}" class="player-pic">
+                        ${player.name}
+                    </td>
+                    <td class="centered ${eliminatedTeams.includes(player.afcTeam) ? 'eliminated' : ''}">
+                        ${player.afcTeam}
+                    </td>
+                    <td class="centered ${eliminatedTeams.includes(player.nfcTeam) ? 'eliminated' : ''}">
+                        ${player.nfcTeam}
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Update Winner and Loser Section
+        function updateWinnerAndLoser(winnerIndex, loserIndex) {
+            const winner = players[winnerIndex];
+            const loser = players[loserIndex];
+
+            const winnerPic = document.getElementById("winnerPic");
+            const winnerName = document.getElementById("winnerName");
+            const loserPic = document.getElementById("loserPic");
+            const loserName = document.getElementById("loserName");
+
+            if (winnerPic && winnerName && loserPic && loserName) {
+                winnerPic.src = winner.picture;
+                winnerName.textContent = winner.name;
+
+                loserPic.src = loser.picture;
+                loserName.textContent = loser.name;
+            } else {
+                console.error("Winner or Loser elements not found in the DOM.");
+            }
+        }
+
+        // Initial Render
+        document.addEventListener("DOMContentLoaded", () => {
+            updatePlayerPicks();
+            updateWinnerAndLoser(0, 6); // Example: Matt as winner, Mark as loser
+        });
+    </script>
 </body>
 </html>
