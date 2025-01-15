@@ -44,6 +44,16 @@ const players = [
     }
 ];
 
+// List of eliminated teams
+const eliminatedTeams = [
+    "Minnesota Vikings",
+    "Los Angeles Chargers",
+    "Pittsburgh Steelers",
+    "Denver Broncos",
+    "Green Bay Packers",
+    "Tampa Bay Buccaneers"
+];
+
 // Update Player Picks Table
 function updatePlayerPicks() {
     const tbody = document.getElementById("playerPicksBody");
@@ -61,8 +71,12 @@ function updatePlayerPicks() {
                 <img src="${player.picture}" alt="${player.name}" class="player-pic">
                 ${player.name}
             </td>
-            <td class="centered">${player.afcTeam}</td>
-            <td class="centered">${player.nfcTeam}</td>
+            <td class="centered ${eliminatedTeams.includes(player.afcTeam) ? 'eliminated' : ''}">
+                ${player.afcTeam}
+            </td>
+            <td class="centered ${eliminatedTeams.includes(player.nfcTeam) ? 'eliminated' : ''}">
+                ${player.nfcTeam}
+            </td>
         `;
         tbody.appendChild(row);
     });
