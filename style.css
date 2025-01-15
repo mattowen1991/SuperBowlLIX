@@ -137,6 +137,24 @@ th {
     border-color: #FF6347;
 }
 
+/* Eliminated Teams Styling */
+.eliminated {
+    text-decoration: line-through;
+    color: red;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    animation: fade 0.5s alternate infinite;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.5;
+    }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
     main {
