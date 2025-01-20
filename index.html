@@ -3,129 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Bowl LIX!</title>
+    <title>Super Bowl Player Picks</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" sizes="48x48" href="Assets/nfl-favicon2.png">
-    <style>
-        /* Add this CSS directly in the <head> for simplicity */
-        .eliminated {
-            text-decoration: line-through;
-            color: red;
-            font-weight: bold;
-            transition: all 0.3s ease-in-out;
-            animation: fade 0.5s alternate infinite;
-        }
-
-        @keyframes fade {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0.5;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
-        <h1>🏈 Super Bowl LIX! 🏆</h1>
-        <p>🔱 The Table of Champions 🔱</p>
+        <h1>Super Bowl Player Picks</h1>
+        <p>Who will win? Who will lose? Stay tuned!</p>
     </header>
+
     <main>
-        <!-- Player Picks Table -->
-        <section id="player-picks" class="card">
-            <h2>Super Bowl Picks</h2>
+        <section class="card">
+            <h2>Player Picks</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Player</th>
-                        <th>
-                            <div class="header-with-logo">
-                                <img src="Assets/afc-logo.png" alt="AFC Logo" class="column-logo"> AFC
-                            </div>
-                        </th>
-                        <th>
-                            <div class="header-with-logo">
-                                <img src="Assets/nfc-logo.png" alt="NFC Logo" class="column-logo"> NFC
-                            </div>
-                        </th>
+                        <th>AFC Team</th>
+                        <th>NFC Team</th>
                     </tr>
                 </thead>
-                <tbody id="playerPicksBody">
-                    <!-- Rows will be dynamically populated by JavaScript -->
-                </tbody>
+                <tbody id="playerPicksBody"></tbody>
             </table>
         </section>
 
-        <!-- Winner and Loser Section -->
-        <section id="winner-loser" class="card">
-            <h2>Super Bowl LIX Results!</h2>
+        <section class="card">
+            <h2>Winner and Loser</h2>
             <div class="highlight-container">
                 <div class="highlight-item">
-                    <h3>🏆 Winner</h3>
+                    <h3>Winner</h3>
                     <div class="framed-pic winner">
-                        <img id="winnerPic" src="Assets/winnertbc.png" alt="TBC">
+                        <img id="winnerPic" src="Assets/winnertbc.png" alt="Winner TBC">
                     </div>
                     <p id="winnerName">TBC</p>
                 </div>
                 <div class="highlight-item">
-                    <h3>😭 Loser</h3>
+                    <h3>Loser</h3>
                     <div class="framed-pic loser">
-                        <img id="loserPic" src="Assets/losertbc.png" alt="TBC">
+                        <img id="loserPic" src="Assets/losertbc.png" alt="Loser TBC">
                     </div>
                     <p id="loserName">TBC</p>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Super Bowl Sweepstake. All rights reserved.</p>
-    </footer>
+
     <script>
         // Hardcoded data for the Super Bowl teams and players
         const players = [
-            {
-                name: "Matt",
-                picture: "Assets/matt.png",
-                afcTeam: "Kansas City Chiefs",
-                nfcTeam: "Detroit Lions"
-            },
-            {
-                name: "Gaz",
-                picture: "Assets/gaz.png",
-                afcTeam: "Buffalo Bills",
-                nfcTeam: "Green Bay Packers"
-            },
-            {
-                name: "Colesy",
-                picture: "Assets/coley.png",
-                afcTeam: "Denver Broncos",
-                nfcTeam: "Minnesota Vikings"
-            },
-            {
-                name: "Jarv",
-                picture: "Assets/jarv.png",
-                afcTeam: "Baltimore Ravens",
-                nfcTeam: "Los Angeles Rams"
-            },
-            {
-                name: "Joe",
-                picture: "Assets/joe.png",
-                afcTeam: "Los Angeles Chargers",
-                nfcTeam: "Tampa Bay Buccaneers"
-            },
-            {
-                name: "Ben",
-                picture: "Assets/ben.png",
-                afcTeam: "Pittsburgh Steelers",
-                nfcTeam: "Philadelphia Eagles"
-            },
-            {
-                name: "Mark",
-                picture: "Assets/mark.png",
-                afcTeam: "Houston Texans",
-                nfcTeam: "Washington Redskins"
-            }
+            { name: "Matt", picture: "Assets/matt.png", afcTeam: "Kansas City Chiefs", nfcTeam: "Detroit Lions" },
+            { name: "Gaz", picture: "Assets/gaz.png", afcTeam: "Buffalo Bills", nfcTeam: "Green Bay Packers" },
+            { name: "Colesy", picture: "Assets/coley.png", afcTeam: "Denver Broncos", nfcTeam: "Minnesota Vikings" },
+            { name: "Jarv", picture: "Assets/jarv.png", afcTeam: "Baltimore Ravens", nfcTeam: "Los Angeles Rams" },
+            { name: "Joe", picture: "Assets/joe.png", afcTeam: "Los Angeles Chargers", nfcTeam: "Tampa Bay Buccaneers" },
+            { name: "Ben", picture: "Assets/ben.png", afcTeam: "Pittsburgh Steelers", nfcTeam: "Philadelphia Eagles" },
+            { name: "Mark", picture: "Assets/mark.png", afcTeam: "Houston Texans", nfcTeam: "Washington Redskins" }
         ];
 
         // List of eliminated teams
@@ -171,30 +103,34 @@
         }
 
         // Update Winner and Loser Section
-        function updateWinnerAndLoser(winnerIndex, loserIndex) {
-            const winner = players[winnerIndex];
-            const loser = players[loserIndex];
-
+        function updateWinnerAndLoser(winnerIndex = null, loserIndex = null) {
             const winnerPic = document.getElementById("winnerPic");
             const winnerName = document.getElementById("winnerName");
             const loserPic = document.getElementById("loserPic");
             const loserName = document.getElementById("loserName");
 
-            if (winnerPic && winnerName && loserPic && loserName) {
+            if (winnerIndex !== null && loserIndex !== null) {
+                const winner = players[winnerIndex];
+                const loser = players[loserIndex];
+
                 winnerPic.src = winner.picture;
                 winnerName.textContent = winner.name;
 
                 loserPic.src = loser.picture;
                 loserName.textContent = loser.name;
             } else {
-                console.error("Winner or Loser elements not found in the DOM.");
+                winnerPic.src = "Assets/winnertbc.png";
+                winnerName.textContent = "TBC";
+
+                loserPic.src = "Assets/losertbc.png";
+                loserName.textContent = "TBC";
             }
         }
 
         // Initial Render
         document.addEventListener("DOMContentLoaded", () => {
             updatePlayerPicks();
-            updateWinnerAndLoser(0, 6); // Example: Matt as winner, Mark as loser
+            updateWinnerAndLoser(); // Initially show TBC for winner and loser
         });
     </script>
 </body>
