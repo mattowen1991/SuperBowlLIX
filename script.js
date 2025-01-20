@@ -52,6 +52,10 @@ const eliminatedTeams = [
     "Denver Broncos",
     "Green Bay Packers",
     "Tampa Bay Buccaneers"
+    "Detroit Lions",
+    "Los Angeles Rams",
+    "Baltimore Ravens",
+    "Houston Texans"
 ];
 
 // Update Player Picks Table
