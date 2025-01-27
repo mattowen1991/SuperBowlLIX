@@ -20,6 +20,8 @@ const eliminatedTeams = [
     "Detroit Lions",
     "Los Angeles Rams",
     "Baltimore Ravens",
+    "Buffalo Bills",
+    "Washington Redskins",
     "Houston Texans"
 ];
 
