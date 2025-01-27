@@ -20,9 +20,9 @@ const eliminatedTeams = [
     "Detroit Lions",
     "Los Angeles Rams",
     "Baltimore Ravens",
+    "Houston Texans",
     "Buffalo Bills",
-    "Washington Redskins",
-    "Houston Texans"
+    "Washington Redskins"
 ];
 
 // Update Player Picks Table
