@@ -21,12 +21,12 @@
                     <tr>
                         <th>Player</th>
                         <th class="header-with-logo">
-                            NFC Team
                             <img src="Assets/nfc-logo.png" alt="NFC Logo" class="column-logo">
+                            NFC Team
                         </th>
                         <th class="header-with-logo">
-                            AFC Team
                             <img src="Assets/afc-logo.png" alt="AFC Logo" class="column-logo">
+                            AFC Team
                         </th>
                     </tr>
                 </thead>
@@ -135,35 +135,9 @@
             });
         }
 
-        // Update Winner and Loser Section
-        function updateWinnerAndLoser(winnerIndex = null, loserIndex = null) {
-            const winnerPic = document.getElementById("winnerPic");
-            const winnerName = document.getElementById("winnerName");
-            const loserPic = document.getElementById("loserPic");
-            const loserName = document.getElementById("loserName");
-
-            if (winnerIndex !== null && loserIndex !== null) {
-                const winner = players[winnerIndex];
-                const loser = players[loserIndex];
-
-                winnerPic.src = winner.picture;
-                winnerName.textContent = winner.name;
-
-                loserPic.src = loser.picture;
-                loserName.textContent = loser.name;
-            } else {
-                winnerPic.src = "Assets/winnertbc.png";
-                winnerName.textContent = "TBC";
-
-                loserPic.src = "Assets/losertbc.png";
-                loserName.textContent = "TBC";
-            }
-        }
-
         // Initial Render
         document.addEventListener("DOMContentLoaded", () => {
             updatePlayerPicks();
-            updateWinnerAndLoser(); // Initially show TBC for winner and loser
         });
     </script>
 </body>
