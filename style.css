@@ -62,7 +62,7 @@ th, td {
 
 /* Align table headers with logos properly */
 .header-with-logo {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px; /* Space between logo and text */
@@ -74,9 +74,10 @@ th, td {
     width: 20px;
     height: 20px;
     object-fit: contain;
+    margin-left: 8px;
 }
 
-/* Center text in AFC and NFC columns */
+/* Center text in NFC and AFC columns */
 th, td:nth-child(2), td:nth-child(3) {
     text-align: center;
 }
