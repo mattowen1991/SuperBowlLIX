@@ -60,24 +60,16 @@ th, td {
     color: white;
 }
 
-/* Ensure headers fill the full width of the table */
-th {
-    width: 33.33%; /* Each column takes up equal space */
-    text-align: center;
-    background: rgba(255, 255, 255, 0.2);
-    color: #FFD700;
-}
-
-/* Fix header logos alignment */
+/* Align table headers with logos properly */
 .header-with-logo {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px; /* Space between text and logo */
-    width: 100%; /* Ensure the header spans full column width */
+    white-space: nowrap; /* Prevent wrapping */
 }
 
-/* Resize and properly align the logos in the table headers */
+/* Resize and align the logos in the table headers */
 .column-logo {
     width: 20px;
     height: 20px;
@@ -89,14 +81,20 @@ th, td:nth-child(2), td:nth-child(3) {
     text-align: center;
 }
 
+th {
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFD700;
+    text-align: center;
+}
+
 /* Player Images in the Table */
 .player-pic {
     width: 40px;
     height: 40px;
-    border-radius: 50%; /* Make the images circular */
+    border-radius: 50%;
     margin-right: 10px;
     vertical-align: middle;
-    object-fit: cover; /* Ensure images fit within the circle without distortion */
+    object-fit: cover;
 }
 
 /* Winner and Loser Section */
@@ -147,17 +145,12 @@ th, td:nth-child(2), td:nth-child(3) {
     text-decoration: line-through;
     color: red;
     font-weight: bold;
-    transition: all 0.3s ease-in-out;
     animation: fade 0.5s alternate infinite;
 }
 
 @keyframes fade {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0.5;
-    }
+    from { opacity: 1; }
+    to { opacity: 0.5; }
 }
 
 /* Honorary Winners Section */
@@ -217,31 +210,9 @@ th, td:nth-child(2), td:nth-child(3) {
         font-size: 0.8rem;
     }
 
-    input, button {
-        font-size: 0.9rem;
-    }
-
     h1 {
         font-size: 1.8rem;
     }
 
     .highlight-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .framed-pic {
-        width: 80px;
-        height: 80px;
-    }
-
-    .honorary-winners-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .honorary-winner {
-        width: 100%;
-        max-width: 250px;
-    }
-}
+        flex-direction
