@@ -48,7 +48,7 @@ h2 {
 
 /* Table Styling */
 table {
-    width: 100%;
+    width: 100%; /* Ensure the table fills the card */
     border-collapse: collapse;
     margin-top: 10px;
 }
@@ -60,26 +60,26 @@ th, td {
     color: white;
 }
 
-/* Force columns to fill table width equally */
+/* Ensure headers fill the full width of the table */
 th {
-    width: 33.33%; /* Each column takes up equal space */
+    width: 33.33%; /* Each column takes up an equal third of the table */
     text-align: center;
     background: rgba(255, 255, 255, 0.2);
     color: #FFD700;
     white-space: nowrap; /* Prevents text wrapping */
 }
 
-/* Ensure logos and text are in the same row */
+/* Ensure logos and text are on the same row */
 .header-with-logo {
     display: flex; /* Aligns text and logo side by side */
-    align-items: center; /* Vertically aligns text and logo */
-    justify-content: center; /* Centers content horizontally */
-    gap: 8px; /* Space between text and logo */
+    align-items: center; /* Centers text and logo vertically */
+    justify-content: center; /* Centers everything horizontally */
+    gap: 8px; /* Adds space between logo and text */
 }
 
 /* Resize and align the logos in the table headers */
 .column-logo {
-    width: 20px; /* Size of the logo */
+    width: 20px;
     height: 20px;
     object-fit: contain;
 }
@@ -93,7 +93,7 @@ th, td:nth-child(2), td:nth-child(3) {
 .player-pic {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 50%; /* Circular images */
     margin-right: 10px;
     vertical-align: middle;
     object-fit: cover;
