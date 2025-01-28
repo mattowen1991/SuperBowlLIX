@@ -21,18 +21,150 @@
                     <tr>
                         <th>Player</th>
                         <th class="header-with-logo">
-                            <img src="Assets/nfc-logo.png" alt="NFC Logo" class="column-logo">
                             NFC Team
+                            <img src="Assets/nfc-logo.png" alt="NFC Logo" class="column-logo">
                         </th>
                         <th class="header-with-logo">
-                            <img src="Assets/afc-logo.png" alt="AFC Logo" class="column-logo">
                             AFC Team
+                            <img src="Assets/afc-logo.png" alt="AFC Logo" class="column-logo">
                         </th>
                     </tr>
                 </thead>
                 <tbody id="playerPicksBody"></tbody>
             </table>
         </section>
+
+        <section class="card">
+            <h2>🏈 Chiefs Vs Eagles 🦅</h2>
+            <div class="highlight-container">
+                <div class="highlight-item">
+                    <h3>Winner</h3>
+                    <div class="framed-pic winner">
+                        <img id="winnerPic" src="Assets/winnertbc.png" alt="Winner TBC">
+                    </div>
+                    <p id="winnerName">TBC</p>
+                </div>
+                <div class="highlight-item">
+                    <h3>Loser</h3>
+                    <div class="framed-pic loser">
+                        <img id="loserPic" src="Assets/losertbc.png" alt="Loser TBC">
+                    </div>
+                    <p id="loserName">TBC</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honorary Winners Section -->
+        <section class="card">
+            <h2>🏆 Honorary Winners 🏆</h2>
+            <div class="honorary-winners-container">
+                <div class="honorary-winner">
+                    <img src="Assets/matt.png" alt="Matt" class="winner-pic">
+                    <p class="winner-name">Matt</p>
+                    <p class="winner-year">Super Bowl LVI - 2022</p>
+                </div>
+
+                <div class="honorary-winner">
+                    <img src="Assets/gaz.png" alt="Gaz" class="winner-pic">
+                    <p class="winner-name">Gaz</p>
+                    <p class="winner-year">Super Bowl LVII - 2023</p>
+                </div>
+
+                <div class="honorary-winner">
+                    <img src="Assets/jarv.png" alt="Jarv" class="winner-pic">
+                    <p class="winner-name">Jarv</p>
+                    <p class="winner-year">Super Bowl LVIII - 2024</p>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <script>
+        // Hardcoded data for the Super Bowl teams and players
+        const players = [
+            { name: "Matt", picture: "Assets/matt.png", afcTeam: "Kansas City Chiefs", nfcTeam: "Detroit Lions" },
+            { name: "Gaz", picture: "Assets/gaz.png", afcTeam: "Buffalo Bills", nfcTeam: "Green Bay Packers" },
+            { name: "Colesy", picture: "Assets/coley.png", afcTeam: "Denver Broncos", nfcTeam: "Minnesota Vikings" },
+            { name: "Jarv", picture: "Assets/jarv.png", afcTeam: "Baltimore Ravens", nfcTeam: "Los Angeles Rams" },
+            { name: "Joe", picture: "Assets/joe.png", afcTeam: "Los Angeles Chargers", nfcTeam: "Tampa Bay Buccaneers" },
+            { name: "Ben", picture: "Assets/ben.png", afcTeam: "Pittsburgh Steelers", nfcTeam: "Philadelphia Eagles" },
+            { name: "Mark", picture: "Assets/mark.png", afcTeam: "Houston Texans", nfcTeam: "Washington Redskins" }
+        ];
+
+        // List of eliminated teams
+        const eliminatedTeams = [
+            "Minnesota Vikings",
+            "Los Angeles Chargers",
+            "Pittsburgh Steelers",
+            "Denver Broncos",
+            "Green Bay Packers",
+            "Tampa Bay Buccaneers",
+            "Detroit Lions",
+            "Los Angeles Rams",
+            "Baltimore Ravens",
+            "Houston Texans",
+            "Buffalo Bills",
+            "Washington Redskins"
+        ];
+
+        // Update Player Picks Table
+        function updatePlayerPicks() {
+            const tbody = document.getElementById("playerPicksBody");
+            if (!tbody) {
+                console.error("Player Picks table body not found.");
+                return;
+            }
+
+            tbody.innerHTML = ""; // Clear existing rows
+
+            players.forEach(player => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>
+                        <img src="${player.picture}" alt="${player.name}" class="player-pic">
+                        ${player.name}
+                    </td>
+                    <td class="centered ${eliminatedTeams.includes(player.afcTeam) ? 'eliminated' : ''}">
+                        ${player.afcTeam}
+                    </td>
+                    <td class="centered ${eliminatedTeams.includes(player.nfcTeam) ? 'eliminated' : ''}">
+                        ${player.nfcTeam}
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Update Winner and Loser Section
+        function updateWinnerAndLoser(winnerIndex = null, loserIndex = null) {
+            const winnerPic = document.getElementById("winnerPic");
+            const winnerName = document.getElementById("winnerName");
+            const loserPic = document.getElementById("loserPic");
+            const loserName = document.getElementById("loserName");
+
+            if (winnerIndex !== null && loserIndex !== null) {
+                const winner = players[winnerIndex];
+                const loser = players[loserIndex];
+
+                winnerPic.src = winner.picture;
+                winnerName.textContent = winner.name;
+
+                loserPic.src = loser.picture;
+                loserName.textContent = loser.name;
+            } else {
+                winnerPic.src = "Assets/winnertbc.png";
+                winnerName.textContent = "TBC";
+
+                loserPic.src = "Assets/losertbc.png";
+                loserName.textContent = "TBC";
+            }
+        }
+
+        // Initial Render
+        document.addEventListener("DOMContentLoaded", () => {
+            updatePlayerPicks();
+            updateWinnerAndLoser(); // Initially show TBC for winner and loser
+        });
+    </script>
 </body>
 </html>
