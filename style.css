@@ -60,26 +60,26 @@ th, td {
     color: white;
 }
 
-/* Ensure headers fill the full width of the table */
+/* Force columns to fill table width equally */
 th {
-    width: 33.33%; /* Ensures each column takes up equal space */
+    width: 33.33%; /* Each column takes up equal space */
     text-align: center;
     background: rgba(255, 255, 255, 0.2);
     color: #FFD700;
-    white-space: nowrap; /* Prevents text from wrapping */
+    white-space: nowrap; /* Prevents text wrapping */
 }
 
-/* Fix header logos alignment and prevent stacking */
+/* Ensure logos and text are in the same row */
 .header-with-logo {
-    display: flex; /* Aligns text and logo in a single row */
-    align-items: center; /* Centers text and logo vertically */
-    justify-content: center; /* Centers everything horizontally */
+    display: flex; /* Aligns text and logo side by side */
+    align-items: center; /* Vertically aligns text and logo */
+    justify-content: center; /* Centers content horizontally */
     gap: 8px; /* Space between text and logo */
 }
 
-/* Resize and properly align the logos in the table headers */
+/* Resize and align the logos in the table headers */
 .column-logo {
-    width: 20px;
+    width: 20px; /* Size of the logo */
     height: 20px;
     object-fit: contain;
 }
