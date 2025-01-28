@@ -62,20 +62,19 @@ th, td {
 
 /* Ensure headers fill the full width of the table */
 th {
-    width: 33.33%;
+    width: 33.33%; /* Ensures each column is the same width */
     text-align: center;
     background: rgba(255, 255, 255, 0.2);
     color: #FFD700;
-    white-space: nowrap;
+    white-space: nowrap; /* Prevents text from wrapping */
 }
 
 /* Fix header logos alignment and prevent stacking */
 .header-with-logo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
+    display: flex; /* Ensures text and logo stay in the same row */
+    align-items: center; /* Centers text and logo vertically */
+    justify-content: center; /* Centers everything horizontally */
+    gap: 8px; /* Space between text and logo */
 }
 
 /* Resize and properly align the logos in the table headers */
