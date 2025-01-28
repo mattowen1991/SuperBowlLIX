@@ -60,16 +60,25 @@ th, td {
     color: white;
 }
 
-/* Align table headers with logos properly */
+/* Ensure headers fill the full width of the table */
+th {
+    width: 33.33%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFD700;
+    white-space: nowrap;
+}
+
+/* Fix header logos alignment and prevent stacking */
 .header-with-logo {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* Space between text and logo */
-    white-space: nowrap; /* Prevent wrapping */
+    gap: 8px;
+    width: 100%;
 }
 
-/* Resize and align the logos in the table headers */
+/* Resize and properly align the logos in the table headers */
 .column-logo {
     width: 20px;
     height: 20px;
@@ -78,12 +87,6 @@ th, td {
 
 /* Center text in NFC and AFC columns */
 th, td:nth-child(2), td:nth-child(3) {
-    text-align: center;
-}
-
-th {
-    background: rgba(255, 255, 255, 0.2);
-    color: #FFD700;
     text-align: center;
 }
 
@@ -215,4 +218,22 @@ th {
     }
 
     .highlight-container {
-        flex-direction
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .framed-pic {
+        width: 80px;
+        height: 80px;
+    }
+
+    .honorary-winners-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .honorary-winner {
+        width: 100%;
+        max-width: 250px;
+    }
+}
