@@ -62,7 +62,7 @@ th, td {
 
 /* Ensure headers fill the full width of the table */
 th {
-    width: 33.33%; /* Ensures each column is the same width */
+    width: 33.33%; /* Ensures each column takes up equal space */
     text-align: center;
     background: rgba(255, 255, 255, 0.2);
     color: #FFD700;
@@ -71,7 +71,7 @@ th {
 
 /* Fix header logos alignment and prevent stacking */
 .header-with-logo {
-    display: flex; /* Ensures text and logo stay in the same row */
+    display: flex; /* Aligns text and logo in a single row */
     align-items: center; /* Centers text and logo vertically */
     justify-content: center; /* Centers everything horizontally */
     gap: 8px; /* Space between text and logo */
