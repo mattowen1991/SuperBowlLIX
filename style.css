@@ -59,6 +59,22 @@ th, td {
     color: white;
 }
 
+/* Align table headers with logos properly */
+.header-with-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between logo and text */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Resize and properly align the logos in the table headers */
+.column-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
 /* Center text in AFC and NFC columns */
 th, td:nth-child(2), td:nth-child(3) {
     text-align: center;
@@ -68,20 +84,6 @@ th {
     background: rgba(255, 255, 255, 0.2);
     color: #FFD700;
     text-align: center;
-}
-
-/* Styles for column headers with logos */
-.header-with-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Space between logo and text */
-    justify-content: center;
-}
-
-.column-logo {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
 }
 
 /* Player Images in the Table */
