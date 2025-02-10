@@ -155,6 +155,24 @@ th, td:nth-child(2), td:nth-child(3) {
     to { opacity: 0.5; }
 }
 
+/* Glowing effect for Super Bowl winners */
+.super-bowl-winner {
+    font-weight: bold;
+    color: gold;
+    text-shadow: 0 0 8px gold, 0 0 16px yellow;
+    animation: glow 1s infinite alternate;
+}
+
+/* Glowing Animation */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 8px gold, 0 0 16px yellow;
+    }
+    to {
+        text-shadow: 0 0 12px yellow, 0 0 24px gold;
+    }
+}
+
 /* Honorary Winners Section */
 .honorary-winners-container {
     display: flex;
