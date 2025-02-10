@@ -40,20 +40,34 @@ function updatePlayerPicks() {
     tbody.innerHTML = ""; // Clear existing rows
 
     players.forEach(player => {
+        let nfcClass = "";
+        let afcClass = "";
+
+        // Ensure the Super Bowl winner class is applied first
+        if (player.nfcTeam === superBowlWinner) {
+            nfcClass = "super-bowl-winner";
+        } else if (eliminatedTeams.includes(player.nfcTeam)) {
+            nfcClass = "eliminated";
+        }
+
+        if (player.afcTeam === superBowlWinner) {
+            afcClass = "super-bowl-winner";
+        } else if (eliminatedTeams.includes(player.afcTeam)) {
+            afcClass = "eliminated";
+        }
+
+        console.log(`Checking ${player.name}: NFC Team: ${player.nfcTeam} (${nfcClass}), AFC Team: ${player.afcTeam} (${afcClass})`);
+
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>
                 <img src="${player.picture}" alt="${player.name}" class="player-pic">
                 ${player.name}
             </td>
-            <td class="centered 
-                ${eliminatedTeams.includes(player.nfcTeam) ? 'eliminated' : ''} 
-                ${player.nfcTeam === superBowlWinner ? 'super-bowl-winner' : (eliminatedTeams.includes(player.nfcTeam) ? 'eliminated' : '')}">
+            <td class="centered ${nfcClass}">
                 ${player.nfcTeam}
             </td>
-            <td class="centered 
-                ${eliminatedTeams.includes(player.afcTeam) ? 'eliminated' : ''} 
-                ${player.afcTeam === superBowlWinner ? 'super-bowl-winner' : (eliminatedTeams.includes(player.afcTeam) ? 'eliminated' : '')}">
+            <td class="centered ${afcClass}">
                 ${player.afcTeam}
             </td>
         `;
