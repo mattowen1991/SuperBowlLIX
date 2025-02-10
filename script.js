@@ -26,9 +26,6 @@ const eliminatedTeams = [
     "Kansas City Chiefs"
 ];
 
-// Define the winning team
-const superBowlWinner = "Philadelphia Eagles"; // Change this if needed
-
 // Update Player Picks Table
 function updatePlayerPicks() {
     const tbody = document.getElementById("playerPicksBody");
@@ -41,18 +38,18 @@ function updatePlayerPicks() {
 
     players.forEach(player => {
         const row = document.createElement("tr");
-        row.innerHTML = `
+        row.innerHTML = 
             <td>
                 <img src="${player.picture}" alt="${player.name}" class="player-pic">
                 ${player.name}
             </td>
-            <td class="centered ${eliminatedTeams.includes(player.nfcTeam) ? 'eliminated' : (player.nfcTeam === superBowlWinner ? 'super-bowl-winner' : 'Philadelphia Eagles')}">
-                ${player.nfcTeam}
-            </td>
-            <td class="centered ${eliminatedTeams.includes(player.afcTeam) ? 'eliminated' : (player.afcTeam === superBowlWinner ? 'super-bowl-winner' : '')}">
+            <td class="centered ${eliminatedTeams.includes(player.afcTeam) ? 'eliminated' : ''}">
                 ${player.afcTeam}
             </td>
-        `;
+            <td class="centered ${eliminatedTeams.includes(player.nfcTeam) ? 'eliminated' : ''}">
+                ${player.nfcTeam}
+            </td>
+        ;
         tbody.appendChild(row);
     });
 }
