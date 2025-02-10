@@ -157,10 +157,10 @@ th, td:nth-child(2), td:nth-child(3) {
 
 /* Super Bowl Winner Styling - Glowing Gold */
 .super-bowl-winner {
-    font-weight: bold;
+    font-weight: bold !important;
     color: gold !important;
-    text-shadow: 0 0 8px gold, 0 0 16px yellow, 0 0 24px orange;
-    animation: glow 1.5s infinite alternate;
+    text-shadow: 0 0 8px gold, 0 0 16px yellow, 0 0 24px orange !important;
+    animation: glow 1.5s infinite alternate !important;
 }
 
 /* Glowing Animation */
