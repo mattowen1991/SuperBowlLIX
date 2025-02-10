@@ -22,8 +22,7 @@ const eliminatedTeams = [
     "Baltimore Ravens",
     "Houston Texans",
     "Buffalo Bills",
-    "Washington Redskins",
-    "Kansas City Chiefs"
+    "Washington Redskins"
 ];
 
 // Update Player Picks Table
@@ -38,7 +37,7 @@ function updatePlayerPicks() {
 
     players.forEach(player => {
         const row = document.createElement("tr");
-        row.innerHTML = 
+        row.innerHTML = `
             <td>
                 <img src="${player.picture}" alt="${player.name}" class="player-pic">
                 ${player.name}
@@ -49,7 +48,7 @@ function updatePlayerPicks() {
             <td class="centered ${eliminatedTeams.includes(player.nfcTeam) ? 'eliminated' : ''}">
                 ${player.nfcTeam}
             </td>
-        ;
+        `;
         tbody.appendChild(row);
     });
 }
