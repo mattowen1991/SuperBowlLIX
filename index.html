@@ -4,112 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Bowl LIX!</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="48x48" href="Assets/nfl-favicon2.png">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>🏈 Super Bowl LIX! 🏆</h1>
         <p>🔱 The Table of Champions 🔱</p>
     </header>
+
     <main>
-        <!-- Player Picks Table -->
-        <section id="player-picks" class="card">
-            <h2>Super Bowl Picks</h2>
+        <section class="card">
+            <h2>Player Picks</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Player</th>
                         <th>
                             <div class="header-with-logo">
-                                <img src="Assets/afc-logo.png" alt="AFC Logo" class="column-logo"> AFC
+                                <img src="Assets/nfc-logo.png" alt="NFC Logo" class="column-logo">
+                                NFC Team
                             </div>
                         </th>
                         <th>
                             <div class="header-with-logo">
-                                <img src="Assets/nfc-logo.png" alt="NFC Logo" class="column-logo"> NFC
+                                <img src="Assets/afc-logo.png" alt="AFC Logo" class="column-logo">
+                                AFC Team
                             </div>
                         </th>
                     </tr>
                 </thead>
-                <tbody id="playerPicksBody">
-                    <tr>
-                        <td>
-                            <img src="Assets/matt.png" alt="Matt" class="player-pic"> Matt
-                        </td>
-                        <td>Kansas City Chiefs</td>
-                        <td>Detroit Lions</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/gaz.png" alt="Gaz" class="player-pic"> Gaz
-                        </td>
-                        <td>Buffalo Bills</td>
-                        <td>Green Bay Packers</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/coley.png" alt="Colesy" class="player-pic"> Colesy
-                        </td>
-                        <td>Denver Broncos</td>
-                        <td>Minnesota Vikings</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/jarv.png" alt="Jarv" class="player-pic"> Jarv
-                        </td>
-                        <td>Baltimore Ravens</td>
-                        <td>Los Angeles Rams</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/joe.png" alt="Joe" class="player-pic"> Joe
-                        </td>
-                        <td>Los Angeles Chargers</td>
-                        <td>Tampa Bay Buccaneers</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/ben.png" alt="Ben" class="player-pic"> Ben
-                        </td>
-                        <td>Pittsburgh Steelers</td>
-                        <td>Philadelphia Eagles</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="Assets/mark.png" alt="Mark" class="player-pic"> Mark
-                        </td>
-                        <td>Houston Texans</td>
-                        <td>Washington Redskins</td>
-                    </tr>
-                </tbody>
+                <tbody id="playerPicksBody"></tbody>
             </table>
         </section>
 
-        <!-- Winner and Loser Section -->
-        <section id="winner-loser" class="card">
-            <h2>Super Bowl LIX Results!</h2>
+        <section class="card">
+            <h2>🏈 Chiefs Vs Eagles 🦅</h2>
             <div class="highlight-container">
                 <div class="highlight-item">
-                    <h3>🏆 Winner</h3>
+                    <h3>Winner</h3>
                     <div class="framed-pic winner">
-                        <img src="Assets/winnertbc.png" alt="TBC">
+                        <img id="winnerPic" src="Assets/ben.png" alt="Ben - Eagles">
                     </div>
-                    <p>TBC</p>
+                    <p id="winnerName">Ben - Eagles</p>
                 </div>
                 <div class="highlight-item">
-                    <h3>😭 Loser</h3>
+                    <h3>Loser</h3>
                     <div class="framed-pic loser">
-                        <img src="Assets/losertbc.png" alt="TBC">
+                        <img id="loserPic" src="Assets/matt.png" alt="Matt - Chiefs">
                     </div>
-                    <p>TBC</p>
+                    <p id="loserName">Matt - Chiefs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honorary Winners Section -->
+        <section class="card">
+            <h2>🏆 Honorary Winners 🏆</h2>
+            <div class="honorary-winners-container">
+                <div class="honorary-winner">
+                    <img src="Assets/ben.png" alt="TBC" class="winner-pic">
+                    <p class="winner-name">Ben</p>
+                    <p class="winner-year">Super Bowl LIX - 2025</p>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Super Bowl Sweepstake. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+
+    <script>
+        // Hardcoded data for the Super Bowl teams and players
+        const players = [
+            { name: "Matt", picture: "Assets/matt.png", afcTeam: "Kansas City Chiefs", nfcTeam: "Detroit Lions" },
+            { name: "Gaz", picture: "Assets/gaz.png", afcTeam: "Buffalo Bills", nfcTeam: "Green Bay Packers" },
+            { name: "Colesy", picture: "Assets/coley.png", afcTeam: "Denver Broncos", nfcTeam: "Minnesota Vikings" },
+            { name: "Jarv", picture: "Assets/jarv.png", afcTeam: "Baltimore Ravens", nfcTeam: "Los Angeles Rams" },
+            { name: "Joe", picture: "Assets/joe.png", afcTeam: "Los Angeles Chargers", nfcTeam: "Tampa Bay Buccaneers" },
+            { name: "Ben", picture: "Assets/ben.png", afcTeam: "Pittsburgh Steelers", nfcTeam: "Philadelphia Eagles" },
+            { name: "Mark", picture: "Assets/mark.png", afcTeam: "Houston Texans", nfcTeam: "Washington Redskins" }
+        ];
+
+        // List of eliminated teams
+        const eliminatedTeams = [
+            "Minnesota Vikings",
+            "Los Angeles Chargers",
+            "Pittsburgh Steelers",
+            "Denver Broncos",
+            "Green Bay Packers",
+            "Tampa Bay Buccaneers",
+            "Detroit Lions",
+            "Los Angeles Rams",
+            "Baltimore Ravens",
+            "Houston Texans",
+            "Buffalo Bills",
+            "Washington Redskins",
+            "Kansas City Chiefs"
+        ];
+
+        // Update Player Picks Table
+        function updatePlayerPicks() {
+            const tbody = document.getElementById("playerPicksBody");
+            if (!tbody) {
+                console.error("Player Picks table body not found.");
+                return;
+            }
+
+            tbody.innerHTML = ""; // Clear existing rows
+
+            players.forEach(player => {
+                const row = document.createElement("tr");
+                row.innerHTML = 
+                    <td>
+                        <img src="${player.picture}" alt="${player.name}" class="player-pic">
+                        ${player.name}
+                    </td>
+                    <td class="centered ${eliminatedTeams.includes(player.nfcTeam) ? 'eliminated' : ''}">
+                        ${player.nfcTeam}
+                    </td>
+                    <td class="centered ${eliminatedTeams.includes(player.afcTeam) ? 'eliminated' : ''}">
+                        ${player.afcTeam}
+                    </td>
+                ;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Initial Render
+        document.addEventListener("DOMContentLoaded", () => {
+            updatePlayerPicks();
+        });
+    </script>
 </body>
 </html>
