@@ -48,7 +48,7 @@ h2 {
 
 /* Table Styling */
 table {
-    width: 100%; /* Ensure the table fills the card */
+    width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
 }
@@ -62,19 +62,19 @@ th, td {
 
 /* Ensure headers fill the full width of the table */
 th {
-    width: 33.33%; /* Each column takes up an equal third of the table */
+    width: 33.33%;
     text-align: center;
     background: rgba(255, 255, 255, 0.2);
     color: #FFD700;
-    white-space: nowrap; /* Prevents text wrapping */
+    white-space: nowrap;
 }
 
 /* Ensure logos and text are on the same row */
 .header-with-logo {
-    display: flex; /* Aligns text and logo side by side */
-    align-items: center; /* Centers text and logo vertically */
-    justify-content: center; /* Centers everything horizontally */
-    gap: 8px; /* Adds space between logo and text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 /* Resize and align the logos in the table headers */
@@ -93,7 +93,7 @@ th, td:nth-child(2), td:nth-child(3) {
 .player-pic {
     width: 40px;
     height: 40px;
-    border-radius: 50%; /* Circular images */
+    border-radius: 50%;
     margin-right: 10px;
     vertical-align: middle;
     object-fit: cover;
@@ -153,6 +153,24 @@ th, td:nth-child(2), td:nth-child(3) {
 @keyframes fade {
     from { opacity: 1; }
     to { opacity: 0.5; }
+}
+
+/* Super Bowl Winner Styling - Glowing Gold */
+.super-bowl-winner {
+    font-weight: bold;
+    color: gold;
+    text-shadow: 0 0 8px gold, 0 0 16px yellow;
+    animation: glow 1s infinite alternate;
+}
+
+/* Glowing Animation */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 8px gold, 0 0 16px yellow;
+    }
+    to {
+        text-shadow: 0 0 12px yellow, 0 0 24px gold;
+    }
 }
 
 /* Honorary Winners Section */
