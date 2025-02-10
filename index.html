@@ -112,7 +112,7 @@
 
             players.forEach(player => {
                 const row = document.createElement("tr");
-                row.innerHTML = `
+                row.innerHTML = 
                     <td>
                         <img src="${player.picture}" alt="${player.name}" class="player-pic">
                         ${player.name}
@@ -123,7 +123,7 @@
                     <td class="centered ${eliminatedTeams.includes(player.afcTeam) ? 'eliminated' : ''}">
                         ${player.afcTeam}
                     </td>
-                `;
+                ;
                 tbody.appendChild(row);
             });
         }
