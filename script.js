@@ -48,12 +48,12 @@ function updatePlayerPicks() {
             </td>
             <td class="centered 
                 ${eliminatedTeams.includes(player.nfcTeam) ? 'eliminated' : ''} 
-                ${player.nfcTeam === superBowlWinner ? 'super-bowl-winner' : ''}">
+                ${player.nfcTeam === superBowlWinner ? 'super-bowl-winner' : (eliminatedTeams.includes(player.nfcTeam) ? 'eliminated' : '')}">
                 ${player.nfcTeam}
             </td>
             <td class="centered 
                 ${eliminatedTeams.includes(player.afcTeam) ? 'eliminated' : ''} 
-                ${player.afcTeam === superBowlWinner ? 'super-bowl-winner' : ''}">
+                ${player.afcTeam === superBowlWinner ? 'super-bowl-winner' : (eliminatedTeams.includes(player.afcTeam) ? 'eliminated' : '')}">
                 ${player.afcTeam}
             </td>
         `;
