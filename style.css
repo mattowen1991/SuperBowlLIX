@@ -46,9 +46,8 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Table Styling */
 table {
-    width: 100%; /* Ensure the table fills the card */
+    width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
 }
@@ -60,43 +59,39 @@ th, td {
     color: white;
 }
 
-/* Ensure headers fill the full width of the table */
-th {
-    width: 33.33%; /* Each column takes up an equal third of the table */
+/* Center text in AFC and NFC columns */
+th, td:nth-child(2), td:nth-child(3) {
     text-align: center;
+}
+
+th {
     background: rgba(255, 255, 255, 0.2);
     color: #FFD700;
-    white-space: nowrap; /* Prevents text wrapping */
+    text-align: center;
 }
 
-/* Ensure logos and text are on the same row */
+/* Styles for column headers with logos */
 .header-with-logo {
-    display: flex; /* Aligns text and logo side by side */
-    align-items: center; /* Centers text and logo vertically */
-    justify-content: center; /* Centers everything horizontally */
-    gap: 8px; /* Adds space between logo and text */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between logo and text */
+    justify-content: center;
 }
 
-/* Resize and align the logos in the table headers */
 .column-logo {
     width: 20px;
     height: 20px;
     object-fit: contain;
 }
 
-/* Center text in NFC and AFC columns */
-th, td:nth-child(2), td:nth-child(3) {
-    text-align: center;
-}
-
 /* Player Images in the Table */
 .player-pic {
     width: 40px;
     height: 40px;
-    border-radius: 50%; /* Circular images */
+    border-radius: 50%; /* Make the images circular */
     margin-right: 10px;
     vertical-align: middle;
-    object-fit: cover;
+    object-fit: cover; /* Ensure images fit within the circle without distortion */
 }
 
 /* Winner and Loser Section */
@@ -142,66 +137,6 @@ th, td:nth-child(2), td:nth-child(3) {
     border-color: #FF6347;
 }
 
-/* Eliminated Teams Styling */
-.eliminated {
-    text-decoration: line-through;
-    color: red;
-    font-weight: bold;
-    animation: fade 0.5s alternate infinite;
-}
-
-@keyframes fade {
-    from { opacity: 1; }
-    to { opacity: 0.5; }
-}
-
-/* Honorary Winners Section */
-.honorary-winners-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.honorary-winner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    width: 150px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.honorary-winner:hover {
-    transform: scale(1.05);
-}
-
-.winner-pic {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid #FFD700;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.winner-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #FFD700;
-}
-
-.winner-year {
-    font-size: 1rem;
-    color: white;
-}
-
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
     main {
@@ -210,6 +145,10 @@ th, td:nth-child(2), td:nth-child(3) {
 
     table, th, td {
         font-size: 0.8rem;
+    }
+
+    input, button {
+        font-size: 0.9rem;
     }
 
     h1 {
@@ -224,15 +163,5 @@ th, td:nth-child(2), td:nth-child(3) {
     .framed-pic {
         width: 80px;
         height: 80px;
-    }
-
-    .honorary-winners-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .honorary-winner {
-        width: 100%;
-        max-width: 250px;
     }
 }
