@@ -158,18 +158,18 @@ th, td:nth-child(2), td:nth-child(3) {
 /* Super Bowl Winner Styling - Glowing Gold */
 .super-bowl-winner {
     font-weight: bold;
-    color: gold;
-    text-shadow: 0 0 8px gold, 0 0 16px yellow;
-    animation: glow 1s infinite alternate;
+    color: gold !important;
+    text-shadow: 0 0 8px gold, 0 0 16px yellow, 0 0 24px orange;
+    animation: glow 1.5s infinite alternate;
 }
 
 /* Glowing Animation */
 @keyframes glow {
     from {
-        text-shadow: 0 0 8px gold, 0 0 16px yellow;
+        text-shadow: 0 0 8px gold, 0 0 16px yellow, 0 0 24px orange;
     }
     to {
-        text-shadow: 0 0 12px yellow, 0 0 24px gold;
+        text-shadow: 0 0 12px yellow, 0 0 24px gold, 0 0 32px orange;
     }
 }
 
